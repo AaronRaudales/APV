@@ -9,7 +9,7 @@ import pacienteRoutes from './routes/pacienteRoutes.js';
 
 
 const app = express();
-app.use(express.json());
+app.use(express.json()); // Para enviar datos tipo json en postman
 
 dotenv.config();
 

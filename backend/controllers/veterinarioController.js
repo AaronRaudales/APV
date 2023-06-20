@@ -9,7 +9,7 @@ const registrarUsuario = async(req, res) => {
     const {email, nombre} = req.body;
   
     // Prevenir usuarios duplicados
-    const existeUsuario = await Veterinario.findOne({email});
+    const existeUsuario = await Veterinario.findOne({email}); // Sintaxis de objeto email:email
     if(existeUsuario) {
         const error = new Error("Usuario ya registrado");
         return res.status(400).json({msg: error.message});
@@ -38,7 +38,7 @@ const registrarUsuario = async(req, res) => {
 // Confirmar cuenta utilizando un token
 const confirmarUsuario = async(req, res)  => {
     try {
-        const {tokenUsuario} = req.params;
+        const {tokenUsuario} = req.params; // El nombre que le asigne en la API, sera el nombre para acceder al params
         const usuarioConfirmar = await Veterinario.findOne({token: tokenUsuario}); // retorna un objeto
         
         if(!usuarioConfirmar) {
@@ -57,7 +57,7 @@ const confirmarUsuario = async(req, res)  => {
 
 };
 
-// Funcion para autenticar a los usuarios
+// Funcion para autenticar a los usuarios(LOGIN)
 const autenticar = async (req,res)=> {
 
    try {
@@ -82,6 +82,10 @@ const autenticar = async (req,res)=> {
         if(await usuario.comprobarPassword(password)){
             // Autenticar al usuario con JWT 
             usuario.token = generarJWT(usuario.id)
+            /*
+            Para ver el token desde el postman
+            res.json({token: generarJWT(usuario.id)})
+            */
             res.json({
                 _id:usuario._id,
                 nombre: usuario.nombre,

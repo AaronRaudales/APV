@@ -5,7 +5,7 @@ import generarId from '../helpers/generarId.js';
 const VeterinarioSchema = new mongoose.Schema({
     nombre: {
         type: String,
-        required: true,
+        required: true, // que es obligatorio
         trim: true // Elimina los espacios en blanco 
     },
     password: {
@@ -42,11 +42,11 @@ VeterinarioSchema.pre('save', async function(next) {
     if(!this.isModified("password")) {
         next();
     }
-    const salt = await bcrypt.genSalt(10)
+    const salt = await bcrypt.genSalt(10) //Rondas de hasheo
     this.password = await bcrypt.hash(this.password, salt)
 });
 
-// Comprobar contraseñas
+// Comprobar contraseñas cuando se registra
 VeterinarioSchema.methods.comprobarPassword = async function(passwordFormulario) {
     return await bcrypt.compare(passwordFormulario, this.password);
 };
