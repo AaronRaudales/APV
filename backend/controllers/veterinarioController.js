@@ -103,6 +103,7 @@ const autenticar = async (req,res)=> {
 
 };
 
+// La sesion de veterinario esta guardada en el JWT (authMiddleware)
 const perfil = (req, res) => {
     const { veterinario } = req;
     res.json(veterinario);
@@ -204,7 +205,7 @@ const actualizarPerfil = async (req, res) => {
 
 const actualizarPassword = async(req, res) => {
     // Leer los datos
-    const { id } = req.veterinario;
+    const { id } = req.veterinario; // Instancia de auth
     const { pwd_nuevo, pwd_actual} = req.body;
 
     // Comprobar quq el veterinario existe

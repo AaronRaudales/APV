@@ -7,12 +7,6 @@ const agregarPaciente = async(req, res) => {
     const paciente = new Paciente(req.body);
     paciente.veterinario = req.veterinario._id
 
-    // if(paciente.nombre === undefined || paciente.propietario === undefined || paciente.email === undefined || paciente.sintomas === undefined){
-    //     return res.status(400).json({
-    //         message: "¡Advertencia! Por favor llenar todos los campos."
-    //     })
-    // }
-
     const pacienteAlmacenado = await paciente.save();
     res.json(pacienteAlmacenado);
 
@@ -20,6 +14,7 @@ const agregarPaciente = async(req, res) => {
         console.log(error);   }
 };
 
+// Obtiene los pacientes de un veterinario
 const obtenerPacientes = async(req, res) => {
     const pacientes = await Paciente.find()
         .where('veterinario')
