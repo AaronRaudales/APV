@@ -55,30 +55,28 @@ const Login = () => {
           />}
           <form onSubmit={handleSubmit}>
             <div className='my-5'>
-              <label className="uppercase text-gray-600 block text-xl font-bold">Email
-                <input 
+              <label className="uppercase text-gray-600 block text-xl font-bold">Email</label>
+              <input 
                   type="email" 
                   placeholder='Email de Registro' 
-                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal'
+                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal outline-indigo-600'
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                />
-              </label>
+              />
             </div>
 
             <div className='my-10'>
-              <label className="uppercase text-gray-600 block text-xl font-bold">Password
-                <input 
+              <label className="uppercase text-gray-600 block text-xl font-bold">Password</label>
+              <input 
                   type="password" 
                   placeholder='Tu Password' 
-                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal'
+                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal outline-indigo-600'
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                />
-              </label>
+              />
             </div>
 
-            <input type="submit" value="Iniciar Sesion" className='bg-indigo-700 w-full py-3 rounded-xl text-white uppercase font-bold mt-5 hover: cursor-pointer hover:bg-indigo-900 px-10 md:w-auto'/>
+            <input type="submit" value="Iniciar Sesion" className='bg-indigo-700 w-full py-3 rounded-xl text-white uppercase font-bold mt-5 hover: cursor-pointer hover:bg-indigo-900 md:w-auto px-10'/>
           </form>
 
           <div>

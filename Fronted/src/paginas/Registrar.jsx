@@ -78,49 +78,45 @@ const Registrar = () => {
             onSubmit={handleSubmit}
           >
           <div className='my-5'>
-              <label className="uppercase text-gray-600 block text-base font-bold">Nombre
-                <input 
+              <label className="uppercase text-gray-600 block text-base font-bold">Nombre</label>
+              <input 
                   type="text" 
                   placeholder='Nombre' 
-                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal'
+                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal outline-indigo-600'
                   value={nombre}
                   onChange={e => setNombre(e.target.value)}
-                />
-              </label>
+              />
             </div>
             <div className='my-5'>
-              <label className="uppercase text-gray-600 block text-base font-bold">Email
-                <input 
+              <label className="uppercase text-gray-600 block text-base font-bold">Email</label>
+              <input 
                   type="email" 
                   placeholder='Email de Registro' 
-                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal'
+                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal outline-indigo-600'
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                />
-              </label>
+              />
             </div>
 
             <div className='my-5'>
-              <label className="uppercase text-gray-600 block text-base font-bold">Password
-                <input 
+              <label className="uppercase text-gray-600 block text-base font-bold">Password</label>
+              <input 
                   type="password" 
                   placeholder='Password' 
-                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal'
+                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal outline-indigo-600'
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                />
-              </label>
+              />
             </div>
             <div className='my-5'>
-              <label className="uppercase text-gray-600 block text-base font-bold">Confirmar Password
-                <input 
+              <label className="uppercase text-gray-600 block text-base font-bold">Confirmar Password</label>
+              <input 
                   type="password" 
                   placeholder='Repite tu password' 
-                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal'
+                  className='border w-full p-3 mt-3 bg-gray-50 rounded-xl font-normal outline-indigo-600'
                   value={repetirPassword}
                   onChange={e => setRepetirPassword(e.target.value)}
-                />
-              </label>
+              />
             </div>
 
 

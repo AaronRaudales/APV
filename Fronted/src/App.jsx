@@ -27,7 +27,7 @@ function App() {
           <PacientesProvider>
             <Routes>
                 {/* Route con las rutas publicas*/}
-                <Route path='/' element={<AuthLayout />}> 
+                <Route path='/' element={<AuthLayout />}> {/* Componente padre */}
                   <Route index element={<Login />}/> {/*Ruta principal por el index  */}
                   <Route path='registrar' element={<Registrar />}/>
                   <Route path='forgot-password' element={<OlvidePassword />}/>

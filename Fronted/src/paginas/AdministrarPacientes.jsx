@@ -14,6 +14,7 @@ const AdministrarPacientes = () => {
         >
           {mostrarFormulario ? 'Ocultar Formulario' : 'Mostrar Formulario'}
         </button>
+        
         <div className={`${mostrarFormulario ? 'block' : 'hidden'} md:block md:w-1/2 lg:w-2/5`}> {/* Hidden es para ocultar  */}
           <Formulario />
         </div>

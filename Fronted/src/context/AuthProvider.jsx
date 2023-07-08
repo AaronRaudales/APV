@@ -40,6 +40,11 @@ const AuthProvider = ({children}) => {
         autenticarUsuario()
     },[])
 
+    if (cargando) {
+        // No muestra nada mientras se verifica la autenticación
+        return null;
+    }
+
     // Funcion para cerrar sesion de la pagina principal
     const cerrarSesion = () => {
         localStorage.removeItem('apv_token')
