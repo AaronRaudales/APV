@@ -12,18 +12,19 @@ const Formulario = () => {
     const [id, setId] = useState(null)
 
     const [alerta, setAlerta] = useState({})
-    const  { guardarPaciente, paciente } = usePacientes()
+    const  { guardarPaciente, pacienteEditado } = usePacientes() // lo extrae del Provider
 
+    // Para cuando se quiera editar un registro, me aparezcan los valores en el formulario
     useEffect(()=> {
-        if(paciente?.nombre){
-            setNombre(paciente.nombre)
-            setPropietario(paciente.propietario)
-            setEmail(paciente.email)
-            setFecha(paciente.fecha)
-            setSintomas(paciente.sintomas)
-            setId(paciente._id)
+        if(pacienteEditado?.nombre){
+            setNombre(pacienteEditado.nombre)
+            setPropietario(pacienteEditado.propietario)
+            setEmail(pacienteEditado.email)
+            setFecha(pacienteEditado.fecha)
+            setSintomas(pacienteEditado.sintomas)
+            setId(pacienteEditado._id) // Cuando se esta editando 1 solo paciente, alli si tenemos un id 
         }
-    },[paciente])
+    },[pacienteEditado]) // Le pasamos la dependencia
 
     const handleSubmit = e => {
         e.preventDefault()

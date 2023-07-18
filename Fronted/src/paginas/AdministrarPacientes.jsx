@@ -10,11 +10,12 @@ const AdministrarPacientes = () => {
         <button
           type="button"
           className="bg-indigo-600 text-white font-bold uppercase mx-10 p-3 rounded-md mb-10 md:hidden"
-          onClick={() => setMostrarFormulario(!mostrarFormulario)}
+          onClick={() => setMostrarFormulario(!mostrarFormulario)} // dejando el parentesis esperará a que se haga click
         >
           {mostrarFormulario ? 'Ocultar Formulario' : 'Mostrar Formulario'}
         </button>
         
+        {/* Los div de los elementos */}
         <div className={`${mostrarFormulario ? 'block' : 'hidden'} md:block md:w-1/2 lg:w-2/5`}> {/* Hidden es para ocultar  */}
           <Formulario />
         </div>

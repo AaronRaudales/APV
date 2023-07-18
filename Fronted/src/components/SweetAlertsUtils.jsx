@@ -5,11 +5,12 @@ const MySwal = withReactContent(Swal);
 
 const deleteConfirmation = ({title, text, confirmButtonText, onDelete}) => {
     MySwal.fire({
-        title: title || 'Are you sure?',
+        //title: title || 'Are you sure?',
         text: text || "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#4F46E5',
+        cancelButtonText: 'CANCELAR',
         cancelButtonColor: '#d33',
         confirmButtonText: confirmButtonText || 'Yes, delete it!'
       }).then((result) => {

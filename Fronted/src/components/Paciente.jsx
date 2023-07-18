@@ -2,7 +2,7 @@ import usePacientes from "../hooks/usePacientes";
 
 const Paciente = ({paciente}) => {
     const { nombre, propietario, email, fecha, sintomas, _id} = paciente;
-    const { setEdicion, eliminarPaciente } = usePacientes()
+    const { editarPaciente, eliminarPaciente } = usePacientes()
 
     // Formatear la fecha
     const formatearFecha = (fecha) => {
@@ -32,7 +32,7 @@ const Paciente = ({paciente}) => {
             <button
                 type="button"
                 className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg uppercase font-bold"
-                onClick={() => setEdicion(paciente)}
+                onClick={() => editarPaciente(paciente)}
             >
                 Editar
             </button>

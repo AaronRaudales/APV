@@ -8,8 +8,8 @@ const PacientesContext = createContext();
 
 export const PacientesProvider = ({children}) => {
 
-    const [pacientes, setPacientes] = useState([])
-    const [paciente, setPaciente] = useState({})
+    const [pacientes, setPacientes] = useState([]) // Un arreglo de pacientes
+    const [pacienteEditado, setPacienteEditado] = useState({}) // Es para editar al usuario, un state con un solo paciente que viene desde paciente, cuando este se itero en ListadoPacientes
     const { auth} = useAuth()
 
     useEffect(() => {
@@ -51,13 +51,13 @@ export const PacientesProvider = ({children}) => {
                 const pacientesActualizado = pacientes.map(pacienteState => pacienteState._id === data._id ? data : pacienteState ) 
                 setPacientes(pacientesActualizado)
             } catch (error) {
-                
+                console.log(error)
             }
         } else {
             try {
 
-                const {data} = await clienteAxios.post('/pacientes', paciente, config)
-                const {createdAt, updatedAt, __v, ...pacienteAlmacenado} = data // Me crea un nuevo objeto sin estos campos(createdAt, updatedAt, __v)
+                const {data} = await clienteAxios.post('/pacientes', paciente, config) // (url/datos/configuracion)
+                const {createdAt, updatedAt, __v, ...pacienteAlmacenado} = data // Me crea un nuevo objeto sin estos campos(createdAt, updatedAt, __v), ese objeto es pacienteAlmacenado
                 setPacientes([pacienteAlmacenado, ...pacientes])
 
             } catch (error)  {
@@ -67,8 +67,8 @@ export const PacientesProvider = ({children}) => {
     }
 
     // Editar los datos de los pacientes
-    const setEdicion = (paciente)=> {
-        setPaciente(paciente)
+    const editarPaciente = (paciente)=> {
+        setPacienteEditado(paciente)
     }
 
     const eliminarPaciente = async id => {
@@ -91,9 +91,9 @@ export const PacientesProvider = ({children}) => {
         }
 
         deleteConfirmation({
-            title: '¿Confirmas que deseas eliminar el Paciente?',
-            text: 'Esta acción no se puede deshacer',
-            confirmButtonText: 'Sí, eliminar',
+            title: '',
+            text: '¿Confirmas que deseas eliminar el Paciente? ',
+            confirmButtonText: 'CONFIRMAR',
             onDelete: handleDeleteConfirmation
         });
     };
@@ -103,8 +103,8 @@ export const PacientesProvider = ({children}) => {
             value={{
                 pacientes,
                 guardarPaciente,
-                setEdicion, 
-                paciente, 
+                editarPaciente, 
+                pacienteEditado, 
                 eliminarPaciente
             }}
         >
