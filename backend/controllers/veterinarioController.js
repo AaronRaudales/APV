@@ -183,9 +183,9 @@ const actualizarPerfil = async (req, res) => {
         }
 
         const {email} = req.body;
-        if(veterinario.email !== req.body.email){
+        if(veterinario.email !== req.body.email){ // Primero verifica que el email que se esta actualizando es diferente al que se tenia almacenado
             const existeEmail = await Veterinario.findOne({email})
-            if(existeEmail) {
+            if(existeEmail) { // Luego verifica que el nuevo email que se quiere almacenar no este ocupado por otro usuario
                 const error = new Error("Email en uso");
                 return res.status(400).json({msg: error.message});
             }

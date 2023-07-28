@@ -5,8 +5,8 @@ import Alerta from '../components/Alerta';
 
 const EditarPerfil = () => {
     const { auth, actualizarPerfil} = useAuth()
-    const [perfil, setPerfil]= useState({})
-    const [alerta, setAlerta] = useState({});
+    const [perfil, setPerfil]= useState({}) // Copia de auth para modificar al veterinario
+    const [alerta, setAlerta] = useState({})
 
     useEffect(()=> {
         setPerfil(auth)
@@ -47,11 +47,11 @@ const EditarPerfil = () => {
                         <input 
                             type="text" 
                             className="border bg-gray-50 w-full p-2 mt-5 rounded-lg"
-                            id="nombre"
-                            name="nombre"
+                            id="nombre" 
+                            name="nombre" // Es importante ya que mediante este atributo accedemos para poder modificarlo
                             value={perfil.nombre || ''}
                             onChange={e=> setPerfil({
-                                ...perfil,
+                                ...perfil, // Hacemos una copia de lo que haya en el state
                                 [e.target.name] : e.target.value
                             })}
                         />
@@ -65,7 +65,7 @@ const EditarPerfil = () => {
                             name="web"
                             value={perfil.web || ''}
                             onChange={e=> setPerfil({
-                                ...perfil,
+                                ...perfil, // Hacemos una copia de lo que haya en el state
                                 [e.target.name] : e.target.value
                             })}
                         />
@@ -79,7 +79,7 @@ const EditarPerfil = () => {
                             name="telefono"
                             value={perfil.telefono || ''}
                             onChange={e=> setPerfil({
-                                ...perfil,
+                                ...perfil, // Hacemos una copia de lo que haya en el state
                                 [e.target.name] : e.target.value
                             })}
                         />
@@ -93,7 +93,7 @@ const EditarPerfil = () => {
                             name="email"
                             value={perfil.email || ''}
                             onChange={e=> setPerfil({
-                                ...perfil,
+                                ...perfil, // Hacemos una copia de lo que haya en el state
                                 [e.target.name] : e.target.value
                             })}
                         />

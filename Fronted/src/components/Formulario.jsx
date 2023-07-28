@@ -70,7 +70,7 @@ const Formulario = () => {
         </p>
         {msg && <Alerta alerta={alerta}/>}
         <form 
-            className="bgt-white py-10 px-5 mb-10 lg:mb-0 shadow-md rounded-md"
+            className="bg-white py-10 px-5 mb-10 lg:mb-0 shadow-md rounded-md"
             onSubmit={handleSubmit}
         >
             <div className="mb-5">

@@ -66,7 +66,7 @@ export const PacientesProvider = ({children}) => {
         }
     }
 
-    // Editar los datos de los pacientes
+    // Editar los datos de los pacientes(PASO 1)
     const editarPaciente = (paciente)=> {
         setPacienteEditado(paciente)
     }

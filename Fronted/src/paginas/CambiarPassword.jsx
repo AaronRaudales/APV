@@ -65,7 +65,7 @@ const CambiarPassword = () => {
                             id="password"
                             name="pwd_actual"
                             onChange={e=> setPassword({
-                              ...password,
+                              ...password, // Hacemos una copia de lo que haya en el state
                               [e.target.name] : e.target.value
                           })}
                         />
